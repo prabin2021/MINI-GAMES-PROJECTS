@@ -16,6 +16,9 @@ import urllib.parse
 import webbrowser
 # from functions.os_ops import open_calculator,open_notepad
 
+import subprocess
+
+
 
 
 
@@ -85,6 +88,11 @@ def take_user_input():
             # current_hour = datetime.now().hour
             strTime = datetime.now().strftime("%H:%M:%S")
             speak("Sir, the time is " + strTime)
+            return None
+        if "cursor" in query.lower() or "eye" in query.lower() or "eyes" in query.lower():
+            speak("Ok, sure sir, I am working on it and please keep your eyes infront the camere.")
+            eye_cursor_process = sp.Popen(['C:\\Users\\sigde\\OneDrive\\Desktop\\extra python\\myenv\\Scripts\\python.exe', 'C:\\Users\\sigde\\OneDrive\\Desktop\\extra python\\eyecursor.py'])
+            eye_cursor_process.wait()
             return None
         if "minimize" in query.lower() or "minimise" in query.lower():
             speak("Ok sir, I am minimizing it.")
